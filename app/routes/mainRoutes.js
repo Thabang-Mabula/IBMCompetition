@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 mainRouter.get('/', function (req, res) {
-  res.sendFile('/index.html', { root: req.app.get('views') })
+  // res.sendFile('/Car, Home & Business Insurance _ 1st for Women Insurance.html', { root: req.app.get('views') })
+  res.render('Car, Home & Business Insurance _ 1st for Women Insurance.html', { /* data */ })
   res.status(200)
 })
 
