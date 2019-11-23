@@ -20,6 +20,12 @@ mainRouter.get('/', function (req, res) {
   res.status(200)
 })
 
+mainRouter.get('/the_journey', function (req, res) {
+  // res.sendFile('/Car, Home & Business Insurance _ 1st for Women Insurance.html', { root: req.app.get('views') })
+  res.render('journey.html', { /* data */ })
+  res.status(200)
+})
+
 mainRouter.post('/api/topics', function (req, res) {
   res.send(topicsModel.getTopicObject(req.body.topic))
 })
