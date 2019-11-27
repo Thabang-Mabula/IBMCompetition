@@ -8,9 +8,11 @@ $(document).ready(function () {
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ message: message }),
-      success: function (res) {
+      success: function (chatBotResponse) {
         // Display to user that an invite has been sent to the desired email address
-        console.log(typeof (res))
+        let text = chatBotResponse[0]
+        console.log(text)
+        $('#chatbox-response').text(text)
       }
     })
 

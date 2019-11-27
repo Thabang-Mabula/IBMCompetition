@@ -5,7 +5,7 @@ let mainRouter = express.Router()
 let app = express()
 let path = require('path')
 
-let journeyContoller = require('../controllers/journeyController.js')
+const { sendMessage } = require('../controllers/journeyController.js')
 
 let bodyParser = require('body-parser')
 
@@ -26,9 +26,9 @@ mainRouter.get('/the_journey', function (req, res) {
   res.status(200)
 })
 
-mainRouter.post('/api/send_message', function (req, res) {
-  let response = journeyContoller.sendMessage(req.body.message)
-  console.log('Asyn response: ' + response)
+mainRouter.post('/api/send_message', async function (req, res) {
+  let response = await sendMessage(req.body.message)
+  console.log('The following message is sent to the front end: ' + response)
   res.send(response)
 })
 

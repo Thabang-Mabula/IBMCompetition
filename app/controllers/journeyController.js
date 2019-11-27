@@ -10,13 +10,37 @@ const service = new AssistantV1({
   url: ASSISTANT_URL
 })
 
-service.message({
-  workspaceId: ASSISTANT_WORKSPACE_ID,
-  input: { 'text': 'Anna' }
-})
-  .then(res => {
-    console.log(JSON.stringify(res, null, 2))
+// service.message({
+//   workspaceId: ASSISTANT_WORKSPACE_ID,
+//   input: { 'text': 'Anna' }
+// })
+//   .then(res => {
+//     console.log(JSON.stringify(res, null, 2))
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
+
+let sendMessage = async (message) => {
+  let messagePromise = new Promise((resolve, reject) => {
+    service.message({
+      workspaceId: ASSISTANT_WORKSPACE_ID,
+      input: { 'text': message }
+    })
+      .then(res => {
+        let chatbotResponse = res.result.output.text
+        // console.log(JSON.stringify(chatbotResponse, null, 2))
+        resolve(chatbotResponse)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   })
-  .catch(err => {
-    console.log(err)
-  })
+
+  let chatbotResponse = await messagePromise
+  return chatbotResponse
+}
+
+module.exports = {
+  sendMessage
+}
