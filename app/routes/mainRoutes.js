@@ -5,7 +5,7 @@ let mainRouter = express.Router()
 let app = express()
 let path = require('path')
 
-// let journeyContoller = require('../controllers/journeyController.js')
+let journeyContoller = require('../controllers/journeyController.js')
 
 let bodyParser = require('body-parser')
 
