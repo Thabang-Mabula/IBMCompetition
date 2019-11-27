@@ -11,6 +11,10 @@ app.use(express.static(path.join(__dirname, './app/controllers')))
 app.engine('html', require('ejs').renderFile)
 app.set('view engine', 'html')
 
+const dotenv = require('dotenv')
+dotenv.config()
+console.log(`Your port is ${process.env.ASSISTANT_APIKEY}`)
+
 let bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({

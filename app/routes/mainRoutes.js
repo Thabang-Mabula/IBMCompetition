@@ -5,7 +5,7 @@ let mainRouter = express.Router()
 let app = express()
 let path = require('path')
 
-let topicsModel = require('../models/topicsModel')
+// let journeyContoller = require('../controllers/journeyController.js')
 
 let bodyParser = require('body-parser')
 
@@ -26,8 +26,10 @@ mainRouter.get('/the_journey', function (req, res) {
   res.status(200)
 })
 
-mainRouter.post('/api/topics', function (req, res) {
-  res.send(topicsModel.getTopicObject(req.body.topic))
+mainRouter.post('/api/send_message', function (req, res) {
+  let response = journeyContoller.sendMessage(req.body.message)
+  console.log('Asyn response: ' + response)
+  res.send(response)
 })
 
 module.exports = mainRouter
