@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   $('#send-btn').click(() => {
     let message = $('#user-message').val()
@@ -8,6 +7,9 @@ $(document).ready(function () {
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ message: message }),
+      beforeSend: () => {
+        $('#chatbox-response').text('...')
+      },
       success: function (chatBotResponse) {
         // Display to user that an invite has been sent to the desired email address
         let text = chatBotResponse[0]
