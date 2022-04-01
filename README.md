@@ -12,9 +12,12 @@ Since this was a time-restricted hackathon, a lot of the code is uncommented and
 ### Pre-requisites 
 You'll need to have Node.js and NPM installed. For installation instructions, please visit: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm. 
 
+You'll also need the .env file for this project which holds the API-specific configs for this project. Please contact me privately if you're interested in running this locally.
+
 ### Running Locally
 
 - Clone the repo to a local directory
+- Paste the .env file in the base folder
 - Open your terminal in the base folder and install all dependencies using the following cli command: 
 `npm install`
 - Run the application by executing the following cli command: 
